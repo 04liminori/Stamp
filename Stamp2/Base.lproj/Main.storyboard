@@ -27,13 +27,6 @@
                                     <action selector="save" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zfe-Bk-Kyr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czi-Ku-rPE">
-                                <rect key="frame" x="20" y="467" width="55" height="55"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="selectedFirst" destination="BYZ-38-t0r" eventType="touchUpInside" id="UeG-gq-YrK"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1s9-o6-609">
                                 <rect key="frame" x="109" y="467" width="55" height="55"/>
                                 <state key="normal" title="Button"/>
@@ -66,7 +59,7 @@
                                 <rect key="frame" x="198" y="567" width="79" height="48"/>
                                 <state key="normal" title="カメラ"/>
                                 <connections>
-                                    <action selector="selectBackground" destination="BYZ-38-t0r" eventType="touchUpInside" id="peW-IX-SwI"/>
+                                    <action selector="openCamera" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Z0-ur-auW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zes-Qd-cXT">
@@ -75,6 +68,13 @@
                                 <state key="normal" title="戻る"/>
                                 <connections>
                                     <action selector="back" destination="BYZ-38-t0r" eventType="touchUpInside" id="ivp-Rx-hQC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czi-Ku-rPE">
+                                <rect key="frame" x="20" y="457" width="67" height="67"/>
+                                <state key="normal" title="Button" image="iris2.gif"/>
+                                <connections>
+                                    <action selector="selectedFirst" destination="BYZ-38-t0r" eventType="touchUpInside" id="UeG-gq-YrK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -90,4 +90,7 @@
             <point key="canvasLocation" x="244.5" y="309.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iris2.gif" width="400" height="400"/>
+    </resources>
 </document>
