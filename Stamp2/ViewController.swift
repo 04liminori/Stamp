@@ -9,11 +9,12 @@
 
 import UIKit
 import AVFoundation
+import Accounts
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //スタンプの名前が入った配列
-    var imagenNameArray: [String] = ["a", "b", "c", "d"]
+    var imagenNameArray: [String] = ["iris2.gif", "b", "c", "d"]
     
     //選択しているスタンプの番号
     var imageIndex: Int = 0
@@ -59,27 +60,46 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    //タッチ開始
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //タッチされた位置を取得
         let touch: UITouch = (touches.first)!
         let location: CGPoint = touch.locationInView(self.view)
         
+        print(location.y)
+        print(haikeiImageView.frame.height)
+        
+        if location.y < 375.0 {
+        
         //もしimageIndexが0でない(押すすスタンプが選ばれていない)とき
         if imageIndex != 0 {
-            //スタンプサイズを40pxの正方形に指定
-            self.imageView = UIImageView(frame: CGRectMake(0, 0, 40, 40))
+            //スタンプサイズを90pxの正方形に指定
+            self.imageView = UIImageView(frame: CGRectMake(0, 0, 90, 90))
             
             //押されたスタンプを設定
             let image: UIImage = UIImage(named: self.imagenNameArray[self.imageIndex - 1])!
             imageView.image = image
-            
-            //タッチされた位置にスタンプを置く
+            haikeiImageView.frame.height            //タッチされた位置にスタンプを置く
             imageView.center = CGPointMake(location.x, location.y)
             
             //画面に表示する
             self.view.addSubview(imageView)
         }
+        }
     }
+    
+    //タッチ中
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    
+        //タッチされた位置を取得
+        let touch: UITouch = (touches.first)!
+        let location: CGPoint = touch.locationInView(self.view)
+        if location.y < 375.0 {
+        //タッチされた位置にスタンプを置く
+        imageView.center = CGPointMake(location.x, location.y)
+        }
+    }
+    
     
     @IBAction func selectBackground() {
         //UIImagePickerControllerのインスタンスを作る
@@ -105,10 +125,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     //フォトライブラリから画像の選択が呼ばれるメソッド
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject], didFinishPickingImage image: UIImage) {
         //imageに選んだ画像を設定する
-        let image: UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        //let image: UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         //そのimageを背景に設定する
         haikeiImageView.image = image
@@ -120,7 +139,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func save() {
         //画面のスクリーンショットを取得
-        let rect: CGRect = CGRectMake(0, 30, 375, 375)
+        let rect: CGRect = CGRectMake(0, 20, haikeiImageView.frame.width, haikeiImageView.frame.height)
         UIGraphicsBeginImageContext(rect.size)
         self.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let captuer = UIGraphicsGetImageFromCurrentImageContext()
@@ -128,61 +147,61 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //フォトライブラリに保存
         UIImageWriteToSavedPhotosAlbum(captuer, nil, nil, nil)
+        
+        let alertController = UIAlertController(title: "保存完了！", message: "", preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
 
     }
     
     @IBAction func openCamera(){
-        //セッションの作成.
-            mySession = AVCaptureSession()
-        
-        // デバイス一覧の取得.
-        let devices = AVCaptureDevice.devices()
-        
-        // バックカメラをmyDeviceに格納.
-        for device in devices{
-            if(device.position == AVCaptureDevicePosition.Back){
-                myDevice = device as! AVCaptureDevice
-            }
-        }
-        
-        // バックカメラからVideoInputを取得.
-        let videoInput = (try! AVCaptureDeviceInput(device: myDevice))
-        mySession.addInput(videoInput)
-        myImageOutput = AVCaptureStillImageOutput()
-        mySession.addOutput(myImageOutput)
-        
-        // セッションに追加.
-        mySession.addInput(videoInput)
-        
-        // 出力先を生成.
-        myImageOutput = AVCaptureStillImageOutput()
-        
-        // セッションに追加.
-        mySession.addOutput(myImageOutput)
-        
-        // 画像を表示するレイヤーを生成.
-        let myVideoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer.init(session: (mySession)) as AVCaptureVideoPreviewLayer
-            myVideoLayer.frame = self.view.bounds
-        myVideoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        
-        // Viewに追加.
-        self.view.layer.addSublayer(myVideoLayer)
-        
-        // セッション開始.
-        mySession.startRunning()
-        
-        // UIボタンを作成.
-        let myButton = UIButton(frame: CGRectMake(0,0,120,50))
-        myButton.backgroundColor = UIColor.redColor();
-        myButton.layer.masksToBounds = true
-        myButton.setTitle("撮影", forState: .Normal)
-        myButton.layer.cornerRadius = 20.0
-        myButton.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-50)
-        myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
-        
-        // UIボタンをViewに追加.
-        self.view.addSubview(myButton)
+        let picker = UIImagePickerController()
+        picker.sourceType = UIImagePickerControllerSourceType.Camera
+        picker.delegate = self
+        presentViewController(picker, animated: true, completion: nil)
     }
+    
+    //写真撮影完了時よばれる
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage,
+        editingInfo: [String : AnyObject]?) {
+            
+        haikeiImageView.image = image                            // 撮影した画像をセットする
+        dismissViewControllerAnimated(true, completion: nil)    // アプリ画面へ戻る
+    }
+    
+    @IBAction func snsPost(){
+        let rect: CGRect = CGRectMake(0, 20, haikeiImageView.frame.width, haikeiImageView.frame.height)
+        UIGraphicsBeginImageContext(rect.size)
+        self.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let captuer = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        //共有する項目
+        let shareText = "写真を加工したよ！！"
+        let shareImage = captuer
+        
+        let activityItems = [shareText, shareImage]
+        
+        //初期化処理
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        
+        //使用しないアクティビティタイプ
+        let excludedActivityTypes = [
+            UIActivityTypePostToWeibo,
+            UIActivityTypeSaveToCameraRoll,
+            UIActivityTypePrint
+        ]
+        
+        activityVC.excludedActivityTypes = excludedActivityTypes
+        
+        //UIActivityViewControllerを表示
+        self.presentViewController(activityVC, animated: true, completion: nil)
+        
+    }
+
 
 
 }
