@@ -11,8 +11,10 @@ import UIKit
 import AVFoundation
 import Accounts
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
+    @IBOutlet weak var scrollView: UIScrollView!
     
+        
     //スタンプの名前が入った配列
     var imagenNameArray: [String] = ["iris2.gif", "b", "c", "d"]
     
@@ -36,6 +38,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.scrollEnabled = true
+        scrollView.pagingEnabled = true
+        scrollView.scrollsToTop = false
+        scrollView.delegate = self
+        
+      
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -71,7 +79,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if location.y < 375.0 {
         
-        //もしimageIndexが0でない(押すすスタンプが選ばれていない)とき
+        //もしimageIndexが0でない(押すスタンプが選ばれていない)とき
         if imageIndex != 0 {
             //スタンプサイズを90pxの正方形に指定
             self.imageView = UIImageView(frame: CGRectMake(0, 0, 90, 90))
@@ -180,7 +188,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         
         //共有する項目
-        let shareText = "写真を加工したよ！！"
+        let shareText = "写真を加工したよ！"
         let shareImage = captuer
         
         let activityItems = [shareText, shareImage]

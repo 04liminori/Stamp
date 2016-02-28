@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -10,37 +10,19 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Stamp2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="xoY-GH-w4R"/>
+                        <viewControllerLayoutGuide type="bottom" id="oLK-3j-zKE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ms1-cL-aDE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ms1-cL-aDE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="feU-DF-kmL"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1s9-o6-609">
-                                <rect key="frame" x="109" y="437" width="55" height="55"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="selectedSecond" destination="BYZ-38-t0r" eventType="touchUpInside" id="l14-3K-Gn4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2t-OP-sPg">
-                                <rect key="frame" x="198" y="437" width="55" height="55"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="selectedThird" destination="BYZ-38-t0r" eventType="touchUpInside" id="40e-uK-2Dv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTS-9P-H5F">
-                                <rect key="frame" x="288" y="437" width="55" height="55"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="selectedFourth" destination="BYZ-38-t0r" eventType="touchUpInside" id="2xl-d2-lcr"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HjV-hf-dDW">
                                 <rect key="frame" x="131" y="543" width="99" height="48"/>
                                 <state key="normal" title="カメラロール">
@@ -50,21 +32,13 @@
                                     <action selector="selectBackground" destination="BYZ-38-t0r" eventType="touchUpInside" id="VV2-bi-hue"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zes-Qd-cXT">
-                                <rect key="frame" x="44" y="549" width="79" height="48"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="戻る">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iud-4X-Tmp">
+                                <rect key="frame" x="250" y="543" width="79" height="48"/>
+                                <state key="normal" title="カメラ">
                                     <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="back" destination="BYZ-38-t0r" eventType="touchUpInside" id="ivp-Rx-hQC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czi-Ku-rPE">
-                                <rect key="frame" x="20" y="431" width="67" height="67"/>
-                                <state key="normal" title="Button" image="iris2.gif"/>
-                                <connections>
-                                    <action selector="selectedFirst" destination="BYZ-38-t0r" eventType="touchUpInside" id="UeG-gq-YrK"/>
+                                    <action selector="openCamera" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Z0-ur-auW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEP-EA-f4v">
@@ -77,7 +51,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1P-Wf-v3B">
-                                <rect key="frame" x="97" y="599" width="79" height="48"/>
+                                <rect key="frame" x="131" y="599" width="45" height="48"/>
                                 <state key="normal" title="シェア">
                                     <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -85,26 +59,126 @@
                                     <action selector="snsPost" destination="BYZ-38-t0r" eventType="touchUpInside" id="h2V-es-kIl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iud-4X-Tmp">
-                                <rect key="frame" x="250" y="543" width="79" height="48"/>
-                                <state key="normal" title="カメラ">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zes-Qd-cXT">
+                                <rect key="frame" x="32" y="543" width="79" height="48"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="戻る">
                                     <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="openCamera" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Z0-ur-auW"/>
+                                    <action selector="back" destination="BYZ-38-t0r" eventType="touchUpInside" id="ivp-Rx-hQC"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uLJ-tc-yfA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0O-Gz-uv3">
+                                        <rect key="frame" x="0.0" y="430" width="750" height="67"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WP-eH-hWh">
+                                                <rect key="frame" x="46" y="19" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="on0-bh-0sc">
+                                                <rect key="frame" x="323" y="19" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inb-SB-PDf">
+                                                <rect key="frame" x="800" y="19" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pN-ED-hc7">
+                                                <rect key="frame" x="201" y="19" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="67" id="7fD-TI-AhI"/>
+                                            <constraint firstAttribute="width" constant="750" id="ZQZ-xd-EuC"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="p0O-Gz-uv3" secondAttribute="bottom" constant="170" id="JuY-wt-BhF"/>
+                                    <constraint firstItem="p0O-Gz-uv3" firstAttribute="top" secondItem="uLJ-tc-yfA" secondAttribute="top" constant="430" id="Nkx-hG-NyC"/>
+                                    <constraint firstAttribute="trailing" secondItem="p0O-Gz-uv3" secondAttribute="trailing" constant="-375" id="VPv-NU-vHv"/>
+                                    <constraint firstItem="p0O-Gz-uv3" firstAttribute="leading" secondItem="uLJ-tc-yfA" secondAttribute="leading" id="o6m-mL-af4"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uLJ-tc-yfA" firstAttribute="leading" secondItem="Ms1-cL-aDE" secondAttribute="leading" id="00w-xc-do4"/>
+                            <constraint firstItem="uLJ-tc-yfA" firstAttribute="top" secondItem="Ms1-cL-aDE" secondAttribute="top" id="1Dl-Vw-jKJ"/>
+                            <constraint firstItem="uLJ-tc-yfA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8St-Hf-JQO"/>
+                            <constraint firstItem="uLJ-tc-yfA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9z4-lA-xaD"/>
+                            <constraint firstItem="uLJ-tc-yfA" firstAttribute="trailing" secondItem="Ms1-cL-aDE" secondAttribute="trailing" id="NMK-JF-7XT"/>
+                            <constraint firstItem="uLJ-tc-yfA" firstAttribute="bottom" secondItem="oLK-3j-zKE" secondAttribute="top" id="X1p-1B-isr"/>
+                            <constraint firstAttribute="trailing" secondItem="uLJ-tc-yfA" secondAttribute="trailing" id="lEB-2y-CI8"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="haikeiImageView" destination="Ms1-cL-aDE" id="fwK-Ed-FEu"/>
+                        <outlet property="scrollView" destination="uLJ-tc-yfA" id="p77-6U-5Dn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244.5" y="309.5"/>
+            <point key="canvasLocation" x="129.5" y="292.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5PJ-B8-A46">
+            <objects>
+                <viewController id="kVb-sA-9qo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uo5-0y-Hhd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xzw-w7-9En"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Npz-ie-E4f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1s9-o6-609">
+                                <rect key="frame" x="76" y="6" width="55" height="55"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="selectedSecond" destination="BYZ-38-t0r" eventType="touchUpInside" id="l14-3K-Gn4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTS-9P-H5F">
+                                <rect key="frame" x="235" y="6" width="55" height="55"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="selectedFourth" destination="BYZ-38-t0r" eventType="touchUpInside" id="2xl-d2-lcr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czi-Ku-rPE">
+                                <rect key="frame" x="381" y="8" width="70" height="51"/>
+                                <state key="normal" title="Button" image="iris2.gif"/>
+                                <connections>
+                                    <action selector="selectedFirst" destination="BYZ-38-t0r" eventType="touchUpInside" id="UeG-gq-YrK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICx-ic-nBM">
+                                <rect key="frame" x="495" y="14" width="63" height="39"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2t-OP-sPg">
+                                <rect key="frame" x="643" y="4" width="55" height="55"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="selectedThird" destination="BYZ-38-t0r" eventType="touchUpInside" id="40e-uK-2Dv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gz9-IJ-CxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="511.46666666666664" y="946.66666666666663"/>
         </scene>
     </scenes>
     <resources>
